@@ -45,8 +45,9 @@
             this.materialTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.materialTable.Location = new System.Drawing.Point(12, 41);
             this.materialTable.Name = "materialTable";
+            this.materialTable.ReadOnly = true;
             this.materialTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.materialTable.Size = new System.Drawing.Size(474, 202);
+            this.materialTable.Size = new System.Drawing.Size(539, 202);
             this.materialTable.TabIndex = 0;
             // 
             // addButton
@@ -61,16 +62,17 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(207, 12);
+            this.editButton.Location = new System.Drawing.Point(243, 12);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 2;
             this.editButton.Text = "Изменить";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(411, 12);
+            this.removeButton.Location = new System.Drawing.Point(476, 12);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 3;

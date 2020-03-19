@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DataBaseTest
 {
-    public partial class MaterialForm : Form
+    public partial class AddMaterialForm : Form
     {
-        public MaterialForm()
+        public AddMaterialForm()
         {
             InitializeComponent();
         }

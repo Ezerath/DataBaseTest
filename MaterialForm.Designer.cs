@@ -1,6 +1,6 @@
 ﻿namespace DataBaseTest
 {
-    partial class MaterialForm
+    partial class AddMaterialForm
     {
         /// <summary>
         /// Required designer variable.
@@ -94,10 +94,10 @@
             // 
             this.typeBox.FormattingEnabled = true;
             this.typeBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
+            "ДСП Русский ламинат",
+            "ДСП Egger",
+            "AGT",
+            "Smart"});
             this.typeBox.Location = new System.Drawing.Point(155, 130);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(299, 21);
@@ -123,7 +123,7 @@
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // MaterialForm
+            // AddMaterialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,7 +137,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "MaterialForm";
+            this.Name = "AddMaterialForm";
             this.Text = "MaterialForm";
             ((System.ComponentModel.ISupportInitialize)(this.countBox)).EndInit();
             this.ResumeLayout(false);

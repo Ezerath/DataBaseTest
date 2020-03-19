@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.Entity;
+using System.Windows.Forms;
 
 namespace DataBaseTest
 {
@@ -32,28 +25,65 @@ namespace DataBaseTest
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            MaterialForm materialForm = new MaterialForm();
+            AddMaterialForm materialForm = new AddMaterialForm();
             DialogResult result = materialForm.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
             Material material = new Material();
-            material.Name = materialForm.nameBox.Text;
-            material.Count = (int)materialForm.countBox.Value;
-            material.Type = materialForm.typeBox.Text;
+            SetMaterialProperty(materialForm, material);
             db.Materials.Add(material);
             db.SaveChanges();
             MessageBox.Show("Материал добавлен в базу");
+        }
+
+        private static void SetMaterialProperty(AddMaterialForm materialForm, Material material)
+        {
+            material.Name = materialForm.nameBox.Text;
+            material.Count = (int)materialForm.countBox.Value;
+            material.Type = materialForm.typeBox.Text;
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             if (materialTable.SelectedRows.Count > 0)
             {
-                int index = materialTable.SelectedRows[0].Index;
-                bool converted = int.TryParse(materialTable[0, index].Value.ToString(), out int id);
-                Material material = db.Materials.Find(id);
+                Material material = FindMaterialById();
                 db.Materials.Remove(material);
                 db.SaveChanges();
+            }
+        }
+
+        private Material FindMaterialById()
+        {
+            int materialId = GetMaterialId();
+            Material material = db.Materials.Find(materialId);
+            return material;
+        }
+
+        private int GetMaterialId()
+        {
+            int index = materialTable.SelectedRows[0].Index;
+            int.TryParse(materialTable[0, index].Value.ToString(), out int id);
+            return id;
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            if (materialTable.SelectedRows.Count == 1)
+            {
+                int materialId = GetMaterialId();
+                Material material = db.Materials.Find(materialId);
+                AddMaterialForm materialForm = new AddMaterialForm();
+                materialForm.nameBox.Text = material.Name;
+                materialForm.countBox.Value = material.Count;
+                materialForm.typeBox.Text = material.Type;
+                DialogResult result = materialForm.ShowDialog(this);
+                if (result == DialogResult.Cancel)
+                    return;
+                SetMaterialProperty(materialForm, material);
+                db.Materials.Add(material);
+                db.SaveChanges();
+                materialTable.Refresh();
             }
         }
     }
