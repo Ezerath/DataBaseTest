@@ -13,14 +13,19 @@ namespace DataBaseTest
             db = new MaterialContext();
             db.Materials.Load();
             materialTable.DataSource = db.Materials.Local.ToBindingList();
+            SetUpDataGrid();
         }
 
-        private void SetUpDataGrid()
+        private void SetUpDataGrid()// над этим надо поработать
         {
-            materialTable.Columns[0].Name = "Id";
-            materialTable.Columns[1].Name = "Наименование";
-            materialTable.Columns[2].Name = "Кол-во";
-            materialTable.Columns[3].Name = "Тип материала";
+            materialTable.Columns[0].HeaderText = "Id";
+            materialTable.Columns[1].HeaderText = "Наименование";
+            materialTable.Columns[2].HeaderText = "Кол-во";
+            materialTable.Columns[3].HeaderText = "Тип материала";
+            foreach (DataGridViewColumn item in materialTable.Columns)
+            {
+                item.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -71,8 +76,7 @@ namespace DataBaseTest
         {
             if (materialTable.SelectedRows.Count == 1)
             {
-                int materialId = GetMaterialId();
-                Material material = db.Materials.Find(materialId);
+                Material material = FindMaterialById();
                 AddMaterialForm materialForm = new AddMaterialForm();
                 materialForm.nameBox.Text = material.Name;
                 materialForm.countBox.Value = material.Count;
@@ -81,6 +85,7 @@ namespace DataBaseTest
                 if (result == DialogResult.Cancel)
                     return;
                 SetMaterialProperty(materialForm, material);
+
                 db.Materials.Add(material);
                 db.SaveChanges();
                 materialTable.Refresh();
