@@ -20,6 +20,16 @@ namespace DataBaseTest
             db = new MaterialContext();
             db.Materials.Load();
             materialTable.DataSource = db.Materials.Local.ToBindingList();
+            SetUpDataGrid();
+            materialTable.Refresh();
+        }
+
+        private void SetUpDataGrid()
+        {
+            materialTable.Columns[0].Name = "Id";
+            materialTable.Columns[1].Name = "Наименование";
+            materialTable.Columns[2].Name = "Кол-во";
+            materialTable.Columns[3].Name = "Тип материала";
         }
 
         private void AddButton_Click(object sender, EventArgs e)

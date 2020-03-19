@@ -38,6 +38,10 @@
             // materialTable
             // 
             this.materialTable.AllowUserToAddRows = false;
+            this.materialTable.AllowUserToDeleteRows = false;
+            this.materialTable.AllowUserToOrderColumns = true;
+            this.materialTable.AllowUserToResizeColumns = false;
+            this.materialTable.AllowUserToResizeRows = false;
             this.materialTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.materialTable.Location = new System.Drawing.Point(12, 41);
             this.materialTable.Name = "materialTable";
