@@ -20,8 +20,6 @@ namespace DataBaseTest
             db = new MaterialContext();
             db.Materials.Load();
             materialTable.DataSource = db.Materials.Local.ToBindingList();
-            SetUpDataGrid();
-            materialTable.Refresh();
         }
 
         private void SetUpDataGrid()
