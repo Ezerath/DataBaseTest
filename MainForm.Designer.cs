@@ -113,7 +113,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.materialTable);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "DB test";
             ((System.ComponentModel.ISupportInitialize)(this.materialTable)).EndInit();
             this.ResumeLayout(false);
 
