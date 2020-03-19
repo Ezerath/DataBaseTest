@@ -29,50 +29,30 @@
         private void InitializeComponent()
         {
             this.materialTable = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.idRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.materialTable)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTable
             // 
+            this.materialTable.AllowUserToAddRows = false;
             this.materialTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.materialTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Name,
-            this.Count,
-            this.Type});
+            this.idRow,
+            this.nameRow,
+            this.countRow,
+            this.TypeRow});
             this.materialTable.Location = new System.Drawing.Point(12, 41);
             this.materialTable.Name = "materialTable";
+            this.materialTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.materialTable.Size = new System.Drawing.Size(474, 202);
             this.materialTable.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.Width = 30;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Наименование";
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
-            // 
-            // Count
-            // 
-            this.Count.HeaderText = "Количество";
-            this.Count.Name = "Count";
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Тип материала";
-            this.Type.Name = "Type";
             // 
             // addButton
             // 
@@ -101,6 +81,28 @@
             this.removeButton.Text = "Удалить";
             this.removeButton.UseVisualStyleBackColor = true;
             // 
+            // idRow
+            // 
+            this.idRow.HeaderText = "ID";
+            this.idRow.Name = "idRow";
+            this.idRow.Width = 30;
+            // 
+            // nameRow
+            // 
+            this.nameRow.HeaderText = "Наименование";
+            this.nameRow.Name = "nameRow";
+            this.nameRow.Width = 200;
+            // 
+            // countRow
+            // 
+            this.countRow.HeaderText = "Количество";
+            this.countRow.Name = "countRow";
+            // 
+            // TypeRow
+            // 
+            this.TypeRow.HeaderText = "Тип материала";
+            this.TypeRow.Name = "TypeRow";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,13 +122,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView materialTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeRow;
     }
 }
 
