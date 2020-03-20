@@ -9,5 +9,6 @@ namespace DataBaseTest
 
         }
         public DbSet<Material> Materials { get; set; }
+        //public DbSet<Material> Egger { get; set; }
     }
 }

@@ -19,10 +19,14 @@ namespace DataBaseTest
         private void SetUpDataGrid()// над этим надо поработать
         {
             materialTable.Columns[0].HeaderText = "Id";
+            materialTable.Columns[0].Width = 30;
             materialTable.Columns[1].HeaderText = "Наименование";
+            materialTable.Columns[1].Width = 200;
             materialTable.Columns[2].HeaderText = "Кол-во";
+            materialTable.Columns[2].Width = 30;
             materialTable.Columns[3].HeaderText = "Тип материала";
-            foreach (DataGridViewColumn item in materialTable.Columns)
+            materialTable.Columns[3].Width = 200;
+            foreach (DataGridViewRow item in materialTable.Rows)
             {
                 item.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }

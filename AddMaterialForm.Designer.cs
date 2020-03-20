@@ -138,7 +138,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddMaterialForm";
-            this.Text = "MaterialForm";
+            this.Text = "AddMaterialForm";
             ((System.ComponentModel.ISupportInitialize)(this.countBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
